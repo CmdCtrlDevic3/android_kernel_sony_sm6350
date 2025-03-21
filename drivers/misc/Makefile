@@ -81,3 +81,4 @@ obj-$(CONFIG_HQ_HARDWARE_INFO) += hqhardwareinfo/
 obj-$(CONFIG_SONY_EXT_UIM_CTRL) += sony_ext_uim_ctrl.o
 obj-y                           += qrc/
 obj-$(CONFIG_KINECTICS_XR_NORDIC) += kxrctrl/
+obj-y 						+= bu520x1nvx/
