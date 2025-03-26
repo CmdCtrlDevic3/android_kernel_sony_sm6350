@@ -25,6 +25,9 @@
 
 #define MMC_AUTOSUSPEND_DELAY_MS	3000
 
+/* Default idle timeout for SD cards: 30 seconds. */
+#define MMC_SDCARD_AUTOSUSPEND_DELAY_MS 30000
+
 struct mmc_ios {
 	unsigned int	clock;		/* clock rate */
 	unsigned int	old_rate;	/* saved clock rate */
