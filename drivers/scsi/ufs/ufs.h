@@ -32,6 +32,11 @@
  * any damages of any kind arising from your use or distribution of
  * this program.
  */
+/*
+ * NOTE: This file has been modified by Sony Corporation.
+ * Modifications are Copyright 2017 Sony Corporation,
+ * and licensed under the license of the file.
+ */
 
 #ifndef _UFS_H
 #define _UFS_H
@@ -504,6 +509,36 @@ struct utp_upiu_rsp {
 };
 
 /**
+ * struct utp_upiu_task_req - Task request UPIU structure
+ * @header - UPIU header structure DW0 to DW-2
+ * @input_param1: Input parameter 1 DW-3
+ * @input_param2: Input parameter 2 DW-4
+ * @input_param3: Input parameter 3 DW-5
+ * @reserved: Reserved double words DW-6 to DW-7
+ */
+struct utp_upiu_task_req {
+	struct utp_upiu_header header;
+	__be32 input_param1;
+	__be32 input_param2;
+	__be32 input_param3;
+	__be32 reserved[2];
+};
+
+/**
+ * struct utp_upiu_task_rsp - Task Management Response UPIU structure
+ * @header: UPIU header structure DW0-DW-2
+ * @output_param1: Ouput parameter 1 DW3
+ * @output_param2: Output parameter 2 DW4
+ * @reserved: Reserved double words DW-5 to DW-7
+ */
+struct utp_upiu_task_rsp {
+	struct utp_upiu_header header;
+	__be32 output_param1;
+	__be32 output_param2;
+	__be32 reserved[3];
+};
+
+/**
  * struct ufs_query_req - parameters for building a query request
  * @query_func: UPIU header query function
  * @upiu_req: the query request data
@@ -580,6 +615,7 @@ struct ufs_dev_info {
 	u16	w_spec_version;
 	u32	d_ext_ufs_feature_sup;
 	u8	b_wb_buffer_type;
+	u8	revision;
 
 	/* query flags */
 	bool f_power_on_wp_en;
@@ -598,6 +634,7 @@ struct ufs_dev_info {
 };
 
 #define MAX_MODEL_LEN 16
+#define MAX_REVISION_LEN 8
 /**
  * ufs_dev_desc - ufs device details from the device descriptor
  *
@@ -608,6 +645,7 @@ struct ufs_dev_desc {
 	u16 wmanufacturerid;
 	char model[MAX_MODEL_LEN + 1];
 	u16 wspecversion;
+	char fw_revision[MAX_REVISION_LEN+1];
 };
 
 /**
