@@ -4,6 +4,7 @@
 #include <dt-bindings/iio/qcom,spmi-vadc.h>
 #include "lagoon-sde-display.dtsi"
 #include "camera/lagoon-camera-sensor-mtp.dtsi"
+#include "camera/wl2864c.dtsi"
 #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
 #include "lagoon-thermal-overlay.dtsi"
 
@@ -174,7 +175,16 @@
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
 	qcom,mdss-dsi-bl-min-level = <1>;
-	qcom,mdss-dsi-bl-max-level = <255>;
+	qcom,mdss-dsi-bl-max-level = <1024>;
+	qcom,platform-te-gpio = <&tlmm 23 0>;
+	qcom,platform-reset-gpio = <&pm6150l_gpios 9 0>;
+};
+
+&dsi_pdx213_amoled_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <1024>;
 	qcom,platform-te-gpio = <&tlmm 23 0>;
 	qcom,platform-reset-gpio = <&pm6150l_gpios 9 0>;
 };
@@ -201,7 +211,7 @@
 };
 
 &sde_dsi {
-	qcom,dsi-default-panel = <&dsi_rm69299_visionox_amoled_video>;
+	qcom,dsi-default-panel = <&dsi_pdx213_amoled_cmd>;
 };
 
 &qupv3_se0_i2c {
@@ -258,7 +268,7 @@
 		synaptics,extend_report;
 		synaptics,firmware-name = "synaptics_firmware.img";
 
-		panel = <&dsi_rm69299_visionox_amoled_video
+		panel = <&dsi_pdx213_amoled_cmd
 			&dsi_rm69299_visionox_amoled_cmd>;
 	};
 };

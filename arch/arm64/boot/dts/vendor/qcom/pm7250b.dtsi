@@ -19,7 +19,7 @@
 			reg = <0x100 0x100>;
 		};
 
-		pm7250b_pon: qcom,power-on@800 {
+		qcom,power-on@800 {
 			compatible = "qcom,qpnp-power-on";
 			reg = <0x800 0x100>;
 		};
@@ -30,12 +30,10 @@
 			#size-cells = <1>;
 			#cooling-cells = <2>;
 
-			qcom,thermal-mitigation = <5400000 4500000 4000000
-				3500000 3000000 2500000 2000000 1500000
-				1000000 500000>;
+			qcom,fcc-max-ua = <3000000>;
+			qcom,otg-cl-ua = <1500000>;
+
 			qcom,pmic-revid = <&pm7250b_revid>;
-			qcom,hvdcp2-max-icl-ua = <2000000>;
-			qcom,hvdcp2-12v-max-icl-ua = <1500000>;
 
 			qcom,chgr@1000 {
 				reg = <0x1000 0x100>;
@@ -226,9 +224,9 @@
 			#address-cells = <1>;
 			#size-cells = <1>;
 
-			qcom,vbatt-cutoff-mv = <3200>;
-			qcom,vbatt-low-mv = <3300>;
-			qcom,vbatt-low-cold-mv = <3700>;
+			qcom,vbatt-cutoff-mv = <3400>;
+			qcom,vbatt-low-mv = <3500>;
+			qcom,vbatt-low-cold-mv = <3800>;
 			qcom,vbatt-empty-mv = <3000>;
 			qcom,vbatt-empty-cold-mv = <3000>;
 			qcom,s3-entry-fifo-length = <2>;

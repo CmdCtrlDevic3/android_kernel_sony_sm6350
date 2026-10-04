@@ -67,7 +67,7 @@
 		qcom,mi2s-audio-intf = <1>;
 		qcom,auxpcm-audio-intf = <1>;
 		qcom,wcn-btfm = <1>;
-		qcom,ext-disp-audio-rx = <0>;
+		qcom,ext-disp-audio-rx = <1>;
 		qcom,afe-rxtx-lb = <0>;
 
 		clock-names = "lpass_audio_hw_vote";
@@ -172,6 +172,6 @@
 		compatible = "qcom,fsa4480-i2c";
 		reg = <0x42>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&fsa_usbc_ana_en>;
+		pinctrl-0 = <&fsa_usbc_ana_en>,  <&fsa_usbc_aux_en>;
 	};
 };

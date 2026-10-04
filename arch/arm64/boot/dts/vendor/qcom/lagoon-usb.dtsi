@@ -172,12 +172,12 @@
 			 0x0a 0x184 /* PLL_LOCK_DELAY */
 			 0x19 0xb4  /* PLL_DIGITAL_TIMERS_TWO */
 			 0x40 0x194 /* PLL_BIAS_CONTROL_1 */
-			 0x22 0x198 /* PLL_BIAS_CONTROL_2 */
+			 0x98 0x198 /* PLL_BIAS_CONTROL_2 */
 			 0x21 0x214 /* PWR_CTRL2 */
 			 0x08 0x220 /* IMP_CTRL1 */
 			 0x58 0x224 /* IMP_CTRL2 */
-			 0x45 0x240 /* TUNE1 */
-			 0x29 0x244 /* TUNE2 */
+			 0x05 0x240 /* TUNE1 */
+			 0x2b 0x244 /* TUNE2 */
 			 0xca 0x248 /* TUNE3 */
 			 0x04 0x24c /* TUNE4 */
 			 0x03 0x250 /* TUNE5 */
@@ -193,12 +193,12 @@
 			0x0a 0x184 /* PLL_LOCK_DELAY */
 			0x19 0xb4  /* PLL_DIGITAL_TIMERS_TWO */
 			0x40 0x194 /* PLL_BIAS_CONTROL_1 */
-			0x22 0x198 /* PLL_BIAS_CONTROL_2 */
+			0x98 0x198 /* PLL_BIAS_CONTROL_2 */
 			0x21 0x214 /* PWR_CTRL2 */
 			0x08 0x220 /* IMP_CTRL1 */
 			0x58 0x224 /* IMP_CTRL2 */
-			0x45 0x240 /* TUNE1 */
-			0x29 0x244 /* TUNE2 */
+			0x05 0x240 /* TUNE1 */
+			0x2b 0x244 /* TUNE2 */
 			0xca 0x248 /* TUNE3 */
 			0x04 0x24c /* TUNE4 */
 			0x03 0x250 /* TUNE5 */
@@ -333,6 +333,10 @@
 			USB3_DP_PCS_LFPS_TX_ECSTART_EQTLOCK 0x86 0
 			USB3_DP_PCS_RXEQTRAINING_RUN_TIME 0x13 0
 			USB3_DP_PCS_LFPS_DET_HIGH_COUNT_VAL 0x04 0
+			USB3_DP_QSERDES_TXA_TX_DRV_LVL_OFFSET 0x3f 0
+			USB3_DP_QSERDES_TXB_TX_DRV_LVL_OFFSET 0x3f 0
+			USB3_DP_QSERDES_TXA_TX_EMP_POST1_LVL 0x32 0
+			USB3_DP_QSERDES_TXB_TX_EMP_POST1_LVL 0x32 0
 			0xffffffff 0xffffffff 0>;
 
 		qcom,qmp-phy-reg-offset =
@@ -373,4 +377,3 @@
 		qcom,usb-audio-intr-num = <2>;
 	};
 };
-
