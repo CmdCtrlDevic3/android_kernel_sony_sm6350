@@ -123,7 +123,7 @@ do {                                                    \
 
 #define WCD_MBHC_JACK_MASK (SND_JACK_HEADSET | SND_JACK_OC_HPHL | \
 			   SND_JACK_OC_HPHR | SND_JACK_LINEOUT | \
-			   SND_JACK_MECHANICAL | \
+			   SND_JACK_MECHANICAL | SND_JACK_MICROPHONE2 | \
 			   SND_JACK_UNSUPPORTED)
 
 #define WCD_MBHC_JACK_BUTTON_MASK (SND_JACK_BTN_0 | SND_JACK_BTN_1 | \
@@ -135,11 +135,11 @@ do {                                                    \
 #define MBHC_BUTTON_PRESS_THRESHOLD_MIN 250
 #define GND_MIC_SWAP_THRESHOLD 4
 #define GND_MIC_USBC_SWAP_THRESHOLD 2
-#define WCD_FAKE_REMOVAL_MIN_PERIOD_MS 100
+#define WCD_FAKE_REMOVAL_MIN_PERIOD_MS 150
 #define HS_VREF_MIN_VAL 1400
 #define FW_READ_ATTEMPTS 15
 #define FW_READ_TIMEOUT 4000000
-#define FAKE_REM_RETRY_ATTEMPTS 3
+#define FAKE_REM_RETRY_ATTEMPTS 10
 #define HPHL_CROSS_CONN_THRESHOLD 100
 #define HPHR_CROSS_CONN_THRESHOLD 100
 
@@ -565,6 +565,7 @@ struct wcd_mbhc {
 	bool btn_press_intr;
 	bool is_hs_recording;
 	bool is_extn_cable;
+	bool extn_cable_inserted;
 	bool skip_imped_detection;
 	bool is_btn_already_regd;
 	bool extn_cable_hph_rem;
